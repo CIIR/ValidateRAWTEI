@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="TEI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="metadata"/>
+        <xs:element ref="text"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="metadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="title"/>
+        <xs:element ref="volume"/>
+        <xs:element maxOccurs="unbounded" ref="creator"/>
+        <xs:element ref="publisher"/>
+        <xs:element ref="language"/>
+        <xs:element ref="copyright-evidence-operator"/>
+        <xs:element ref="possible-copyright-status"/>
+        <xs:element ref="copyright-region"/>
+        <xs:element ref="copyright-evidence"/>
+        <xs:element ref="copyright-evidence-date"/>
+        <xs:element ref="sponsor"/>
+        <xs:element ref="contributor"/>
+        <xs:element ref="scanningcenter"/>
+        <xs:element ref="mediatype"/>
+        <xs:element maxOccurs="unbounded" ref="collection"/>
+        <xs:element ref="call_number"/>
+        <xs:element ref="collection-library"/>
+        <xs:element ref="identifier-bib"/>
+        <xs:element ref="identifier-access"/>
+        <xs:element ref="updatedate"/>
+        <xs:element ref="updater"/>
+        <xs:element ref="identifier"/>
+        <xs:element ref="uploader"/>
+        <xs:element ref="addeddate"/>
+        <xs:element ref="publicdate"/>
+        <xs:element ref="imagecount"/>
+        <xs:element ref="ppi"/>
+        <xs:element ref="lcamid"/>
+        <xs:element ref="rcamid"/>
+        <xs:element ref="camera"/>
+        <xs:element ref="operator"/>
+        <xs:element ref="scanner"/>
+        <xs:element ref="scandate"/>
+        <xs:element ref="identifier-ark"/>
+        <xs:element ref="curation"/>
+        <xs:element ref="sponsordate"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="volume" type="xs:integer"/>
+  <xs:element name="creator" type="xs:string"/>
+  <xs:element name="publisher" type="xs:string"/>
+  <xs:element name="language" type="xs:NCName"/>
+  <xs:element name="copyright-evidence-operator" type="xs:NCName"/>
+  <xs:element name="possible-copyright-status" type="xs:NCName"/>
+  <xs:element name="copyright-region" type="xs:NCName"/>
+  <xs:element name="copyright-evidence" type="xs:string"/>
+  <xs:element name="copyright-evidence-date" type="xs:integer"/>
+  <xs:element name="sponsor" type="xs:NCName"/>
+  <xs:element name="contributor" type="xs:string"/>
+  <xs:element name="scanningcenter" type="xs:NCName"/>
+  <xs:element name="mediatype" type="xs:NCName"/>
+  <xs:element name="collection" type="xs:NCName"/>
+  <xs:element name="call_number" type="xs:NMTOKEN"/>
+  <xs:element name="collection-library" type="xs:NCName"/>
+  <xs:element name="identifier-bib" type="xs:NCName"/>
+  <xs:element name="identifier-access" type="xs:anyURI"/>
+  <xs:element name="updatedate" type="xs:string"/>
+  <xs:element name="updater" type="xs:NCName"/>
+  <xs:element name="identifier" type="xs:NCName"/>
+  <xs:element name="uploader" type="xs:string"/>
+  <xs:element name="addeddate" type="xs:string"/>
+  <xs:element name="publicdate" type="xs:string"/>
+  <xs:element name="imagecount" type="xs:integer"/>
+  <xs:element name="ppi" type="xs:integer"/>
+  <xs:element name="lcamid" type="xs:integer"/>
+  <xs:element name="rcamid" type="xs:integer"/>
+  <xs:element name="camera" type="xs:NMTOKEN"/>
+  <xs:element name="operator" type="xs:string"/>
+  <xs:element name="scanner" type="xs:NCName"/>
+  <xs:element name="scandate" type="xs:integer"/>
+  <xs:element name="identifier-ark" type="xs:anyURI"/>
+  <xs:element name="curation" type="xs:string"/>
+  <xs:element name="sponsordate" type="xs:integer"/>
+  <xs:element name="text">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="cb"/>
+        <xs:element ref="pb"/>
+        <xs:element ref="fw"/>
+        <xs:element ref="p"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fw">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="lb"/>
+        <xs:element maxOccurs="unbounded" ref="w"/>
+      </xs:sequence>
+      <xs:attribute name="place" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="p">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="cb"/>
+        <xs:element ref="lb"/>
+        <xs:element ref="pb"/>
+        <xs:element ref="w"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pb">
+    <xs:complexType>
+      <xs:attribute name="n" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cb">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="lb">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="w">
+    <xs:complexType mixed="true">
+      <xs:attribute name="coords" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
